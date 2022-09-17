@@ -1,5 +1,6 @@
 const db = require('../database/clients.mock')
 
+
 const filtred = db.map(item => (
   {
     _id : item._id,
@@ -49,10 +50,30 @@ module.exports.load = (app) => {
   });  
 
   /** Get all enterprises */
-  app.get("/enterprise", (req, res, next) => {});
+  app.get("/enterprise", (req, res, next) => {
+    let enterprises = db.map(item => ({
+      clientName : item.name ,
+      enterprise: item.enterprises
+    }))
+
+    return res.send(enterprises)
+  });
 
   /** Get enterprises by name */
-  app.get("/enterprise/name/:name", (req, res, next) => {});
+  app.get("/enterprise/name/:name", (req, res, next) => {
+    const {name} = req.params;
+    let getEnterprises = db.map(item => item.enterprises.find(
+      enterpriseName => {
+        if (enterpriseName.name.includes(name)) {
+          return true;
+        }
+    })).filter(y => y != undefined)
+
+    if (getEnterprises.length == 0) return res.status(404).send('Enterprise not found');
+    
+    return res.send(getEnterprises)
+
+  });
 
   /** Get all enterprises by client */
   app.get("/:client_id/enterprise", (req, res, next) => {
