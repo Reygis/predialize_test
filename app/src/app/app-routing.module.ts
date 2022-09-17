@@ -2,13 +2,15 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { NavbarComponent } from "./navigation/navbar.component";
 import { EnterpriseRoutes } from "./pages/enterprise/enterprise.module";
+import { ClientRoutes } from "./pages/client/client.module";
 
 const routes: Routes = [
   {
     path: "",
     component: NavbarComponent,
-    children: [...EnterpriseRoutes],
-  },
+    children: [...ClientRoutes, ...EnterpriseRoutes],
+  }
+    
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { AppComponent } from "./app.component";
 import { PagesModule } from "./pages/pages.module";
 import { NavbarModule } from "./navigation/navebar.module";
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

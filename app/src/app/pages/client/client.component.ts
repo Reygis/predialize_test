@@ -1,4 +1,14 @@
 import { Component, OnInit } from "@angular/core";
+import {ClientService} from '../../services/client.service'
+
+
+export interface Clients {
+  _id : string;
+  name: string;
+  image_src: string;
+  numOfEnterprises: number;
+  numOfRealties: number;
+}
 
 @Component({
   selector: "app-client",
@@ -6,7 +16,16 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./client.component.scss"],
 })
 export class ClientComponent implements OnInit {
-  constructor() {}
+  clients: Clients[] = []
 
-  ngOnInit(){}
+ 
+  constructor(private clientService: ClientService) {
+    this.getAll();
+  }
+
+  ngOnInit():void {}
+
+  getAll(): void {
+    this.clientService.getAll().subscribe((clients)=> (this.clients = clients))
+  }
 }
