@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 
 import { EnterpriseComponent } from './enterprise.component';
 import { EnterpriseService } from 'src/app/services/enterprise.service';
+import {CommonModule} from '@angular/common'
 
 export const EnterpriseRoutes: Routes = [
   {
@@ -13,6 +14,7 @@ export const EnterpriseRoutes: Routes = [
 
 @NgModule({
   declarations: [EnterpriseComponent],
-  providers: [EnterpriseService]
+  providers: [EnterpriseService],
+  imports:[CommonModule]
 })
 export class EnterpriseModule {}

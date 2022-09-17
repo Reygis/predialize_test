@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 
 import { ClientComponent } from './client.component';
 import { ClientService } from 'src/app/services/client.service';
-
+import {CommonModule} from '@angular/common'
 export const ClientRoutes: Routes = [
   {
     path: 'client',
@@ -13,6 +13,7 @@ export const ClientRoutes: Routes = [
 
 @NgModule({
   declarations: [ClientComponent],
-  providers: [ClientService]
+  providers: [ClientService],
+  imports:[CommonModule]
 })
 export class ClientModule {}

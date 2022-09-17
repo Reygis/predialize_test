@@ -17,10 +17,10 @@ import { NavbarModule } from "./navigation/navebar.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
     FlexLayoutModule,
-    HttpClientModule,
     NavbarModule,
     PagesModule,
   ],

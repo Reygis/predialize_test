@@ -28,4 +28,6 @@ export class ClientComponent implements OnInit {
   getAll(): void {
     this.clientService.getAll().subscribe((clients)=> (this.clients = clients))
   }
+
+  
 }

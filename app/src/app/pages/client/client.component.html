@@ -1,12 +1,18 @@
 <div>
     <h1>Clients:</h1>
-    <ul class="clients">
-        <li>Id: {{ client._id }} -
-        Nome: {{ client.name }} -
-        Img: {{ client.image_src }} -
-        Numero de empreendimentos: {{ client.numOfEnterprises }} -
-        Numero de imóveis: {{ client.numOfRealties }}</li>
 
-    </ul>
+    Procurar client por nome: <input type="text" name="findClientByname" id="findClientByname" submit="">
 
+    <div *ngFor="let client of clients">
+      <div class="client">
+        <div>Id: {{ client._id }}</div>
+        <div>Nome: {{ client.name }}</div>
+        <div><a href="{{ client.image_src }}" target="_blank">
+            Img: {{ client.image_src }}
+        </a> 
+         </div>
+        <div>Numero de empreendimentos: {{ client.numOfEnterprises }}</div>
+        <div>Numero de imóveis: {{ client.numOfRealties }}</div>
+      </div>
+    </div>
 </div>
